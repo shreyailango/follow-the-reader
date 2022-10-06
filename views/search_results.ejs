@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head"); %>
+  </head>
+  <body>
+    <div class = "container">
+        <h1> Search for anything </h1>
+        <form action = "/author/:id" method = "post">
+            <input type="text" placeholder="Search for anything" name = "searchTerm">
+            <input type = "submit"> 
+        </form>
+
+        <table>
+          <% for (let i = 0; i < data.length; i++) { %>
+          <tr>
+            <td> <%= data["items"][i]["volumeInfo"]["title"] %></td>
+            <td> <%= data["items"][i]["volumeInfo"]["subtitle"] %> </td>
+            <td> <%= data["items"][i]["volumeInfo"]["authors"] %></td>
+            <td> <%= data["items"][i]["volumeInfo"]["description"] %></td>
+            <td> <%= data["items"][i]["volumeInfo"]["categories"] %> </td>
+          </tr>
+          <% } %>
+        </table>>
+   </div>
+  </body>
+</html>

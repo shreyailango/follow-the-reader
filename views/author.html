@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Home</title>
+  </head>
+  <body>
+    <h1> Search for anything </h1>
+    <form action = "/author/:id" method = "post">
+        <input type="text" placeholder="Search for anything" name = "searchTerm">
+        <input type = "submit"> 
+    </form>
+
+    <ul class = "search-result"> </ul>
+   
+  </body>
+</html>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+
+<% if (book != null) { %>
+  <table>
+    <% for (let i = 0; i < data.length; i++) { %>
+    <tr>
+      <td> <%= book["items"][i]["volumeInfo"]["title"] %></td>
+      <td> <%= book["items"][i]["volumeInfo"]["subtitle"] %> </td>
+      <td> <%= book["items"][i]["volumeInfo"]["authors"] %></td>
+      <td> <%= book["items"][i]["volumeInfo"]["description"] %></td>
+      <td> <%= book   ["items"][i]["volumeInfo"]["categories"] %> </td>
+      <td> <%= book["items"][i]["volumeInfo"]</td>
+    </tr>
+    <% } %>
+  </table>
+  <% } %>
+
+
+  .then(book => console.log(book["items"]))

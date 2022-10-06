@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head"); %>
+    <link rel="stylesheet" href="../public/css/index.css" type="text/css" />
+  </head>
+  <body>
+    <div class = "container">
+      <img src = "../public/bookshelf1.jpeg">
+      <h1> Follow The Reader </h1>
+      <p> Welcome to the book club! Please log in to continue. </p>
+      <form action="/login" method="post">
+        <!-- user input-->
+        <input type="text" name="username" placeholder="Username" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <!-- submit button -->
+        <input type="submit" value="Log In" id = "submit_button">
+      </form>
+<br>
+  <p> Forgot password? Click here! </p>
+  <p> Not a user? Sign up <a href = "/register"> here! </a></p>
+    <br> <br> <br>
+    </div>
+  </body>
+</html> 
