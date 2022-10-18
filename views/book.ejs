@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head"); %>
+    <link rel="stylesheet" href="../public/css/book.css" type="text/css" />
+  </head>
+  <body>
+    <div class = "container">
+      <% let title = url.substring(34, url.length) %>
+      <% let bookTitle = title.replace(/%20/g, " ") %>
+      <% bookTitle = bookTitle.replace(/%27/g, `'`) %>
+      <h3> <%= bookTitle %> </h3>
+      <% for (let i = 0; i < book["items"].length; i++) { %>
+        <% if (book["items"][i]["volumeInfo"]["title"] === bookTitle) {%>
+          <h5> <%= book["items"][i]["volumeInfo"]["subtitle"] %> </h5>
+          <h5> <%= book["items"][i]["volumeInfo"]["authors"] %></h5>
+          <div id = "img">
+            <img src=<%= book["items"][i]["volumeInfo"]["imageLinks"]["smallThumbnail"] %>/>
+          </div>
+          <p> <%= book["items"][i]["volumeInfo"]["description"] %></p>
+          <% } %>
+        <% } %>
+        <br>
+        <h3> Reviews </h3>
+        <div class = "reviews">
+
+        </div>
+        <button onclick="addtoBookShelf()"> Add to my bookshelf </button>
+        <br>
+        <button onclick="submitReview()"> Submit a review </button>
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

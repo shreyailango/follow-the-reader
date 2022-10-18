@@ -19,20 +19,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 
-<% if (book != null) { %>
+
+
+  .then(book => console.log(book["items"]))
+
+
   <table>
-    <% for (let i = 0; i < data.length; i++) { %>
+    <% for (let i = 0; i < book["items"].length; i++) { %>
     <tr>
       <td> <%= book["items"][i]["volumeInfo"]["title"] %></td>
       <td> <%= book["items"][i]["volumeInfo"]["subtitle"] %> </td>
       <td> <%= book["items"][i]["volumeInfo"]["authors"] %></td>
       <td> <%= book["items"][i]["volumeInfo"]["description"] %></td>
-      <td> <%= book   ["items"][i]["volumeInfo"]["categories"] %> </td>
-      <td> <%= book["items"][i]["volumeInfo"]</td>
+      <td> <%= book["items"][i]["volumeInfo"]["categories"] %> </td>
+      <td> <img src=<%= book["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"] %>/> </td>
     </tr>
     <% } %>
   </table>
-  <% } %>
-
-
-  .then(book => console.log(book["items"]))

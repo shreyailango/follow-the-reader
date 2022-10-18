@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+img {
+    height: 20%;
+    width: 20%;
+}
+
+h3, h5, h6 {
+    font-family: "Yomogi";
+    justify-content: center;
+    font-weight: bold;
+}
+
+p {
+    font-size: 15px;
+}

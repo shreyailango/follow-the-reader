@@ -9,9 +9,13 @@ const url = require('url');
 const querystring = require('querystring');
 const { render } = require('ejs');
 const app = express();
+const router = express.Router();
+const fs = require ("fs");
 
 app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
+
+var bookData = null;
 
 const fetch = (...args) =>
 	import('node-fetch').then(({default: fetch}) => fetch(...args));
@@ -90,16 +94,16 @@ app.get("/profile", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render("profile");
 });
 
-app.get("/author", async (req, res) => {
+app.get("/search", async (req, res) => {
     //res.sendFile(__dirname + '/views/author.html');
-    res.render("author", {book:null});
+    let searchTerm = req?.query?.searchTerm;
+    if (searchTerm === undefined) {
+      res.render("search", {book:null});
+    } else {
+      console.log("author = " + searchTerm);
+    }
 });
 
-app.get("/author/:searchTerm", (req, res) => { 
-    let searchTerm = req.body.searchTerm;
-    console.log("author = " + searchTerm);
-    res.send(req.params.searchTerm);
-});
 
 /*app.post("/author/:id", async (req, res) => { 
     let searchTerm = req.body.searchTerm;
@@ -126,19 +130,29 @@ app.get("/author/:searchTerm", (req, res) => {
     });
   }); */
 
-app.post("/author/:searchTerm", (req, res) => {
+app.post("/search/", (req, res) => {
   let searchTerm = req.body.searchTerm;
   console.log("author = " + searchTerm);
   fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`, 
   { method: "GET", 
 	headers: {'Content-Type': 'application/json'}})
     .then(res => res.json())
-    .then(book => {res.render("author", {book:book});})
+    .then(book => {res.render("search", {book:book}); book_data = JSON.stringify(book), bookData = book, fs.writeFileSync("book.json", book_data)})
     .catch(err => console.error("error: " + err));
-    
   }, 
   ); 
-  
+
+  //fs.writeFileSync("book.json", book); 
+app.get("/book", (req, res) => {
+  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  console.log(bookData);
+  return res.render("book", {url : fullUrl, book: bookData});
+});
+
+app.get("/review", (req, res) => {
+  res.render("review");
+});
+
 // assign port
 const port = 3000;
 app.listen(port, () => console.log(`This app is listening on port ${port}`));

@@ -7,16 +7,18 @@
   <body>
     <div class = "container">
         <h1> Search for anything </h1>
-        <form action = "/author/:searchTerm" method = "post">
+        <form action = "/search" method = "post">
             <input type="text" placeholder="Search for anything" name = "searchTerm">
             <input type = "submit"> 
         </form>
         <br>
         <div id= "searchResults"> 
           <% if (book != null) { %>
-            <div class = "row align-items-start">
+            <div class = "results">
                 <% for (let i = 0; i < book["items"].length; i++) { %>
-                  <div class = "col">
+                  <div class = "item">
+                    <% var bookTitle = book["items"][i]["volumeInfo"]["title"] %>
+                    <a href = "/book/?title=<%= bookTitle %>" id = "book_title"> <%= book["items"][i]["volumeInfo"]["title"] %> </a>
                     <h4> <%= book["items"][i]["volumeInfo"]["title"] %></h4>
                     <h6> <%= book["items"][i]["volumeInfo"]["subtitle"] %> </h6>
                     <h6> <%= book["items"][i]["volumeInfo"]["authors"] %></h6>
@@ -33,5 +35,4 @@
         </div> 
    </div>
   </body>
-  
 </html>
