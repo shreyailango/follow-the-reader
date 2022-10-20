@@ -17,7 +17,9 @@
           <div id = "img">
             <img src=<%= book["items"][i]["volumeInfo"]["imageLinks"]["smallThumbnail"] %>/>
           </div>
+          <br>
           <p> <%= book["items"][i]["volumeInfo"]["description"] %></p>
+          <% break %>
           <% } %>
         <% } %>
         <br>
@@ -25,11 +27,25 @@
         <div class = "reviews">
 
         </div>
-        <button onclick="addtoBookShelf()"> Add to my bookshelf </button>
+        <button onclick="openPopup();"> Add to my bookshelf </button>
+        <div class = "popup" id = "popup">
+          <h2> add book to bookshelf?</h2>
+        </div>
+        
         <br>
         <button onclick="submitReview()"> Submit a review </button>
     </div>
     <script>
+      function openPopup() {
+        console.log("function called");
+        let popup = document.getElementbyId("popup");
+        popup.classList.add("open-popup");
+      }
+
+      function closePopup() {
+        let popup = document.getElementbyId("popup");
+        popup.classList.remove("open-popup");
+      }
 
     </script>
 </body>

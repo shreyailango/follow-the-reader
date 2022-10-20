@@ -2,20 +2,23 @@
 <html lang="en">
   <head>
     <%- include("./partials/head"); %>
+    <link rel="stylesheet" href="../public/css/profile.css" type="text/css" />
   </head>
   <body>
     <div class = "container">
-      <p> How good is your shelf esteem? </p>
+      <h1> Hi <%= username %>!</h1>
+      <h1> How good is your shelf esteem? </h1>
       <div class= "liked_books">
-        <h1> My Liked Books</h1>
+        <h2> My Liked Books</h2>
       </div>
       <div class = "to_be_read">
-        <h1> TBR </h1>  
+        <h2> TBR </h2>  
       </div>
       <div class = "my_reviews">
-        <h1> My Reviews</h1>
+        <h2> My Reviews</h2>
       </div>
-        <a href = "/logout"> Log Out </a>
+      <h2> Looking for something new? Search our catalog <a href = "/search"> here! </a></h2>
+      <a href = "/logout"> Log Out </a>
     </div>
     </body>
     </html>

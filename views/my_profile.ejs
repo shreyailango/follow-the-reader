@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head"); %>
+    <link rel="stylesheet" href="../public/css/my_profile.css" type="text/css" />
+  </head>
+    <body>
+        <div class = "container">
+            <h1> Account Details </h1>
+            <div class = "personal_info">
+                <p> Name: <%= user.name %> </p>
+            </div>
+            <div class = "personal_info">
+                <p> Username: <%= user.username %></p>
+            </div>
+            <div class = "personal_info">
+                <p> Email: <%= user.email %> </p>
+            </div>
+            <div class = "personal_info">
+                <p> Password: <%= user.password %></p>
+            </div>
+            <a href = ""> Edit account information </a>
+        </div>
+    </body>
+</html>
