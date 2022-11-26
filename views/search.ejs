@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <%- include("./partials/head"); %>
-    <link rel="stylesheet" href="../public/css/author.css" type="text/css" />
+    <link rel="stylesheet" href="../public/css/search.css" type="text/css" />
   </head>
   <body>
     <div class = "container">
+      <a href = "/profile" id = "nav"> My profile </a>
         <h1> Search for anything </h1>
         <form action = "/search" method = "post">
             <input type="text" placeholder="Search for anything" name = "searchTerm">

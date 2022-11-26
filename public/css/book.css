@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
+* {
+    background-color: #fffaff;
+}
 .container {
     display: flex;
     justify-content: center;
     text-align: center;
+    background-color: #fffaff;
 }
 
 img {
@@ -37,4 +41,13 @@ p {
 
 .open-popup {
     visibility: visible;
+}
+
+.buttons {
+    display: inline-block;
+}
+
+#button {
+    font-family: "Yomogi";
+    padding: 15px;
 }

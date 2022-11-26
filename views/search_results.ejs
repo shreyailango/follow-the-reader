@@ -25,3 +25,20 @@
    </div>
   </body>
 </html>
+
+<% for (let i = 0; i < toBeRead.length; i++) { %> 
+  <% } %>
+  
+{"name":"Shea","password":"$2a$10$exmk7STi.p5TtlWRtSoMQu9iCVlLIAXrBybE4YxczFGSg.cP7prAW","email":"shea@yahoo.com","_id":"6350d968fdba802b029e0d73","__v":0}
+
+
+for (let i = 0; i < req.user.toBeRead.length; i++) {
+  request(`https://www.googleapis.com/books/v1/volumes/${req.user.toBeRead[i]}`, {json: true}, async (err, res, body) => {
+    if (err) { return console.log(err); }
+    //console.log("body = ", body);
+    tbrShelf.push(body);
+    console.log("array = ", tbrShelf.length);
+  });
+}
+
+<p> <%= markAsRead.length %></p>

@@ -17,3 +17,17 @@ a, h2 {
 a {
     font-size: 30px;
 }
+
+.liked_books {
+    border: 2px solid;
+}
+
+.to_be_read {
+    border: 2px solid;
+    display: flex;
+    flex-direction: row;
+}
+
+#book_title {
+    font-size: 20px;
+}

@@ -6,14 +6,26 @@
   </head>
   <body>
     <div class = "container">
-      <h1> Hi <%= username %>!</h1>
-      <h1> How good is your shelf esteem? </h1>
+      <h1> Hi <%= user.name %>!</h1>
       <div class= "liked_books">
         <h2> My Liked Books</h2>
       </div>
+      <h2> TBR </h2>
+      <% if (tbrShelf.length != 0) { %>
       <div class = "to_be_read">
-        <h2> TBR </h2>  
+        <% for (let i = 0; i < tbrShelf.length; i++) { %>
+          <div class = "item">
+            <% var bookTitle = tbrShelf[i]["volumeInfo"]["title"] %>
+            <a href = "/book/?title=<%= bookTitle %>" id = "book_title"> <%= tbrShelf[i]["volumeInfo"]["title"] %> </a>
+            <h6> <%= tbrShelf[i]["volumeInfo"]["authors"] %></h6>
+            <div class = "image">
+              <img src=<%= tbrShelf[i]["volumeInfo"]["imageLinks"]["thumbnail"] %>/>
+            </div>
+            <br>
+          </div>
+          <% } %>
       </div>
+      <% } %>
       <div class = "my_reviews">
         <h2> My Reviews</h2>
       </div>
