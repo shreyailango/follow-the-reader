@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 // connect to database
-mongoose.connect('mongodb+srv://silango:0xs2dS6FaQoq5ndS@cluster0.h9g9gjy.mongodb.net/test',{
+mongoose.connect('',{
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
